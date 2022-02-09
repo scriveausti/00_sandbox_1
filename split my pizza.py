@@ -7,7 +7,8 @@ print("")
 while True:
     try:
         slicers = int(input("how many slicers of pizza do you want? "))
-        break
+        if slicers > 0 :
+            break
     except:
         print("<error> pleas enter the number of slicers you want"
               "")
@@ -17,7 +18,8 @@ print("")
 while True:
     try:
         people = int(input("how many people will be splitting the slicers? "))
-        break
+        if people > 0:
+            break
     except:
         print("<error> pleas enter the number of people splitting the slicers ")
         print("")
@@ -31,7 +33,8 @@ print("")
 while True:
     try:
         people_splitting_bill = int(input("how many people will be splitting the bill "))
-        break
+        if people_splitting_bill > 0:
+            break
     except:
         print("<error> pleas enter the number of people splitting the bill")
         print("")
@@ -41,7 +44,8 @@ print("")
 while True:
     try:
         tip_percentage = int(input("what percentage would you like to tip "))
-        break
+        if tip_percentage > 0:
+            break
     except:
         print("<error> pleas enter the percentage you would like to tip e.g. \"20\"")
         print("")
