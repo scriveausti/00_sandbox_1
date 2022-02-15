@@ -1,11 +1,14 @@
 
 total_cost = 0.00
+in_coupon = ""
 
 crusts = ["thick crust", "thin crust"]
 sizes = ["8 inch", "10 inch", "12 inch", "14 inch", "18 inch"]
 cheeses = ["yes", "no"]
 types = ["margarita", "vegetable", "vegan", "hawaiian", "meat feast"]
 voucher_code = ["FunFriday"]
+
+print("Welcome to pizza shack")
 
 while True:
     order_crust = input("do you want thick or think crust? ").lower()
@@ -60,3 +63,38 @@ elif order_type == types[3] or order_type == types[4]:
     total_cost = total_cost + 2.00
 
 print("")
+
+while True:
+    have_coupon = input("do you have a coupon/discount code").lower()
+    if have_coupon == "no":
+        break
+    elif have_coupon == "yes":
+        while True:
+            in_coupon = input("what is you code (case sensitive)")
+            if in_coupon in voucher_code:
+                print("valid")
+                break
+            else:
+                print("invalid")
+                retry = input("do you want to retry").lower()
+                if retry == "no":
+                    break
+                elif retry != "yes":
+                    print("<error> please enter yes or no")
+                    print("")
+        break
+    else:
+        print("<error> please enter yes or no")
+if in_coupon == voucher_code[0] and order_size == "18 inch":
+    total_cost = total_cost - 2.00
+
+print("")
+
+if order_cheese == "yes":
+    print("you ordered a {} {} pizza with a {} with cheese".format(order_size,order_type, order_crust))
+    print("witch costs ${}".format(total_cost))
+elif order_cheese == "no":
+    print("you ordered a {} {} pizza with a {} without cheese".format(order_size,order_type, order_crust))
+    print("witch costs ${}".format(total_cost))
+
+print("thanks for ordering your order will arrive in the next few months")
